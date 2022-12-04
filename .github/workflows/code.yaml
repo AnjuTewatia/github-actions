@@ -1,7 +1,7 @@
 
-name:counter_app
+name : counter_app
 
-#Triggers(events)
+# Triggers (events)
 
 on: 
   push:
@@ -12,12 +12,12 @@ on:
 
 
 
-# function (what needs to be done)
+# functions (what needs to be done)
 
 jobs:
   build:
-  name:Build
-  runs-on:ubuntu-latest
+  name: Build
+  runs-on: ubuntu-latest
 
   steps:
   - name: Checkout code
@@ -34,8 +34,8 @@ jobs:
     - name: Upload artifact on order to deploy
     uses: actions/upload-artifact@v2
     with :
-    name :production-files
-    path: ./nuilt
+    name : production-files
+    path: ./built
 
 
   deploy:
@@ -51,7 +51,7 @@ jobs:
     path : ./build
 
   - name: Deploy to github pages
-    uses: peaceiris/action\-gh-pages@v3
+    uses: peaceiris/action-gh-pages@v3
 
   with:
   github_token: $ {{secrets.GH_TOKEN}}
