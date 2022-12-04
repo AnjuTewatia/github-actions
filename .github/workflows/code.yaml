@@ -27,32 +27,32 @@ jobs:
     with:
     node-version: 16.x
 
-  - name : Install dependencies
+  - name: Install dependencies
      run: npm i
   - name: build project
     run : npm run build
-   - name: Upload artifact in order to deploy
+  - name: Upload artifact in order to deploy
     uses: actions/upload-artifact@v2
-    with :
-    name : production-files
-    path: ./build
+    with:
+      name: production-files
+      path: ./build
 
 
   deploy:
-    name : deploy 
+    name: deploy 
     runs-on: ubuntu-latest
     needs: build
 
-  steps :
-  - name : Download artifact
-    uses:  actions/download-artifact@v2
+  steps:
+  - name: Download artifact
+    uses: actions/download-artifact@v2
     with:
-      name : production-files
-      path : ./build
+      name: production-files
+      path: ./build
 
   - name: Deploy to github pages
     uses: peaceiris/actions-gh-pages@v3
 
   with:
-  github_token: $ {{secrets.GH_TOKEN}}
+  github_token: ${{secrets.GH_TOKEN}}
   publish_dir: ./build
