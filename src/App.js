@@ -23,7 +23,7 @@ function App() {
       width:"100%",
       height:"100%",
       top:"-15%",
-    }}> Counter App
+    }}> Counter App:{counter}
 <div>
       <button style={{
         fontSize:"60%",
